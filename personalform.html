@@ -121,41 +121,46 @@
         <form action="">
             <div class="container">
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for=""> الاسم </label>
+                            <input type="text" id="normalInput" class="form-control">
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">نوع الهوية</label>
-                            <select name="" class="form-control" id="">
+                            <select name="typeofId" id="selectInput" class="form-control" id="">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
-                                <option value="بطاقه احوال"> بطاقه احوال </option>
-                                <option value="كرت العائله "> كرت العائله </option>
-                                <option value="هويه مقيم"> </option>
+                                <option value="بطاقه"> بطاقه احوال </option>
+                                <option value="العائله"> كرت العائله </option>
+                                <option value="مقيم">هويه مقيم </option>
 
                             </select>
+                            <div id="typeofId" class="none form-group">
+                                <label class="text-danger" for=""> </label>
+                                <input type="file"  required class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">رقم الهوية
                             </label>
-                            <input type="number" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for=""> الاسم </label>
-                            <input type="text" class="form-control">
+                            <input type="number" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for=""> المنطقة</label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">المدينة </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -163,25 +168,25 @@
                             <label for="">تاريخ إنتهاء الهوية
 
                             </label>
-                            <input type="date" class="form-control">
+                            <input type="date" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for=""> العمر</label>
-                            <input type="number" class="form-control">
+                            <input type="number" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">الجنسية </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">الجنس </label>
-                            <select class="form-control">
+                            <select id="selectInput" class="form-control">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
                                 <option value="ذكر">ذكر</option>
                                 <option value="انثي">انثي</option>
@@ -192,12 +197,16 @@
                         <div class="form-group">
                             <label for="">الحالة الوظيفية</label>
 
-                            <select class="form-control">
+                            <select name="jobType"  id="selectInput" class="form-control">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
                                 <option value="موظف">موظف</option>
                                 <option value="متقاعد">متقاعد</option>
                                 <option value="عاطل">عاطل</option>
                             </select>
+                            <div id="jobType" class="none form-group">
+                                <label class="text-danger" for=""> </label>
+                                <input type="file"  required class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -205,7 +214,7 @@
                             <label for="">جهة العمل
 
                             </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -213,58 +222,66 @@
                             <label for=""> الحالة الاجتماعية
 
                             </label>
-                            <select class="form-control">
+                            <select name="relationStatus" id="selectInput" class="form-control">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
                                 <option value="مطلقه">مطلقه</option>
                                 <option value="ارمل">ارمل</option>
                                 <option value="اعزب">اعزب</option>
                                 <option value="متزوج">متزوج</option>
                             </select>
+                            <div id="relationStatus" class="none form-group">
+                                <label class="text-danger" for=""> </label>
+                                <input type="file"  required class="form-control">
+                                <br>
+                                <input type="file"  required class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for=""> نوع الدخل الشهري</label>
                             <br>
-                            <input type="checkbox" value="الراتب" id="type1">
+                            <input type="checkbox" value="الراتب" name="salarytype" id="type1">
                             <label for="type1"> الراتب</label>
-                            <input type="checkbox" value="التقاعد" id="type2">
+                            <input type="checkbox" value="التقاعد" name="salarytype" id="type2">
                             <label for="type2"> التقاعد</label>
-                            <input type="checkbox" value="الضمان" id="type3">
+                            <input type="checkbox" value="الضمان" name="salarytype" id="type3">
                             <label for="type3"> الضمان</label>
-                            <input type="checkbox" value="التأهيل" id="type4">
+                            <input type="checkbox" value="التأهيل" name="salarytype" id="type4">
                             <label for="type4"> التأهيل</label>
-                            <input type="checkbox" value="حساب الموطن" id="type5">
+                            <input type="checkbox" value="حساب الموطن" name="salarytype" id="type5">
                             <label for="type5"> حساب الموطن</label>
-                            <input type="checkbox" value="غيره" id="type6">
                             <label for="type6"> غيره</label>
+                            <input type="checkbox" value="غيره" name="salarytype" id="type6">
+                 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for=""> الدخل الشهري الإجمالي </label>
-                            <input type="number" class="form-control">
+                            <input type="number" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">دخل من يسكنون معك
-
                             </label>
-                            <input type="number" class="form-control">
+                            <input type="number" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">الحالة الصحية
-
-                            </label>
-                            <select class="form-control">
+                            <label for="">الحالة الصحية </label>
+                            <select name="helthStatus" id="selectInput" class="form-control">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
                                 <option value="معاق">معاق</option>
                                 <option value="مريض">مريض</option>
                                 <option value="سليم">سليم</option>
                             </select>
+                            <div id="helthStatus" class="none form-group">
+                                <label class="text-danger" for=""> </label>
+                                <input type="file"  required class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -272,7 +289,7 @@
                             <label for=""> المستوى التعليمي
 
                             </label>
-                            <select class="form-control">
+                            <select id="selectInput" class="form-control">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
                                 <option value="دبلوم">دبلوم</option>
                                 <option value="جامعي">جامعي</option>
@@ -284,15 +301,19 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div name="rent" class="form-group">
                             <label for="">نوع السكن
 
                             </label>
-                            <select class="form-control">
+                            <select name="rent" id="selectInput" class="form-control">
                                 <option disabled selected> - الرجاء تحديد اخيار -</option>
                                 <option value="ملك">ملك</option>
                                 <option value="ايجار">ايجار</option>
                             </select>
+                            <div id="rent" class="none form-group">
+                                <label class="text-danger" for=""> </label>
+                                <input type="file"  required class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -300,13 +321,13 @@
                             <label for="">العنوان الوطني
 
                             </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for=""> الجوال</label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -314,7 +335,7 @@
                             <label for=""> اسم المصرف
 
                             </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -322,7 +343,7 @@
                             <label for="">اسم صاحب الحساب
 
                             </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="normalInput" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -330,14 +351,13 @@
                             <label for="">رقم الحساب البنكي (ايبان)
 
                             </label>
-                            <input type="number" class="form-control">
+                            <input type="number" id="normalInput" class="form-control">
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="">وصف الطلب </label>
-                            <textarea rows="6" class="form-control">
+                            <textarea rows="6" id="normalInput" class="form-control">
                           </textarea>
                         </div>
                     </div>
