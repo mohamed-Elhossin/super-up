@@ -6,7 +6,9 @@ var checkboxes = document.querySelectorAll('input[name="salarytype"]');
 let helthStatus = document.querySelector("#helthStatus");
 let jobType = document.querySelector("#jobType");
 let rent = document.querySelector("#rent");
-
+let numberOfId = document.querySelector("input[name='numberOfId']");
+let numberInput = document.querySelectorAll("input[name='numberInput']");
+let confirmationCheckbox = document.querySelector("input[name='confirmationCheckbox']");
 let relationStatus = document.querySelector('#relationStatus');
 // console.log(normalInput);
 // console.log(selectInput);
@@ -144,7 +146,7 @@ function validateForm() {
     if (!checked) {
 
         if (!this.hasAttribute('data-text-added')) {
-            let newText = `<br><span class='text-danger'> اختر واحد علي الاقل</span>`;
+            let newText = `<span class='text-danger'>  <br> اختر واحد علي الاقل</span>`;
 
             checkboxes[5].insertAdjacentHTML('afterend', newText);
 
@@ -172,3 +174,81 @@ checkboxes.forEach(function (checkbox) {
 
 });
 
+// Validation on رقم الهويه
+numberOfId.addEventListener("change", function () {
+
+    if (!(!isNaN(this.value) && this.value.length === 10)) {
+
+        if (!this.hasAttribute('data-text-added')) {
+            let newText = `<span class='text-danger'>  هذا الحقل لابد ان يكون رقم متكون من 10 ارقام </span>`;
+
+            this.insertAdjacentHTML('afterend', newText);
+
+            // Set a flag to indicate that the text has been added
+            this.setAttribute('data-text-added', 'true');
+        }
+    } else {
+        console.log("faalse");
+        // If the input is not empty, remove the span if it exists
+        let nextElement = this.nextElementSibling;
+        if (nextElement && nextElement.classList.contains('text-danger')) {
+            nextElement.remove();
+        }
+
+        // Optionally, you can remove the data-text-added attribute
+        this.removeAttribute('data-text-added');
+    }
+});
+
+
+
+// Validation On number Inputs
+for (let i = 0; i < numberInput.length; i++) {
+    numberInput[i].addEventListener("change", function () {
+        if (!(!isNaN(this.value) && this.value > 0)) {
+
+            if (!this.hasAttribute('data-text-added')) {
+                let newText = `<span class='text-danger'>  برجاء ادخال قيمه رقميه صحيحه</span>`;
+
+                this.insertAdjacentHTML('afterend', newText);
+
+                // Set a flag to indicate that the text has been added
+                this.setAttribute('data-text-added', 'true');
+            }
+        } else {
+            // If the input is not empty, remove the span if it exists
+            let nextElement = this.nextElementSibling;
+            if (nextElement && nextElement.classList.contains('text-danger')) {
+                nextElement.remove();
+            }
+
+            // Optionally, you can remove the data-text-added attribute
+            this.removeAttribute('data-text-added');
+        }
+
+    });
+}
+
+
+confirmationCheckbox.addEventListener("change", function () {
+    if (this.checked) {
+        console.log("True confirmation");
+         // If the input is not empty, remove the span if it exists
+         let nextElement = this.nextElementSibling;
+         if (nextElement && nextElement.classList.contains('text-danger')) {
+             nextElement.remove();
+         }
+
+         // Optionally, you can remove the data-text-added attribute
+         this.removeAttribute('data-text-added');
+    }else{
+        if (!this.hasAttribute('data-text-added')) {
+            let newText = `<span class='text-danger'>   برجاءالموافقه علي هذا  </span>`;
+
+            this.insertAdjacentHTML('afterend', newText);
+
+            // Set a flag to indicate that the text has been added
+            this.setAttribute('data-text-added', 'true');
+        }
+    }
+})
